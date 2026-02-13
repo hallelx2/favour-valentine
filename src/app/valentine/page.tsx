@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { Heart, PenLine, Star } from 'lucide-react';
 
 export default function Valentine() {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -29,7 +30,7 @@ export default function Valentine() {
       <nav className="relative z-20 w-full px-6 py-6 flex justify-between items-center max-w-7xl mx-auto">
         <div className="flex items-center gap-3">
           <div className="bg-primary/20 p-2 rounded-full text-primary">
-            <span className="material-icons text-xl">favorite</span>
+            <Heart className="w-5 h-5 fill-current" />
           </div>
           <span className="text-sm font-semibold tracking-wider uppercase text-primary/80">My Forever Nurse</span>
         </div>
@@ -117,7 +118,7 @@ export default function Valentine() {
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full"></div>
               <span className="relative flex items-center gap-2">
-                <span className="material-icons text-xl">favorite</span>
+                <Heart className="w-5 h-5 fill-current" />
                 Release the Love
               </span>
             </button>
@@ -133,7 +134,7 @@ export default function Valentine() {
 
             <div className="relative z-10 text-center space-y-6">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary mb-2">
-                <span className="material-icons">edit</span>
+                <PenLine className="w-5 h-5" />
               </div>
               <h2 className="text-2xl font-bold text-white">A Letter For You</h2>
 

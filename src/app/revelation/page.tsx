@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Menu, Hourglass, Heart, GraduationCap, Flower2, Sparkles, ArrowLeft, ArrowRight, Church } from 'lucide-react';
 
 export default function Revelation() {
   return (
@@ -21,7 +22,7 @@ export default function Revelation() {
          {/* Top Navigation / Progress */}
          <div className="absolute top-8 left-8 flex items-center gap-3 text-white/40 hover:text-white transition-colors cursor-pointer group">
              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                 <span className="material-icons text-sm">menu</span>
+                 <Menu className="w-4 h-4" />
              </div>
              <span className="text-xs uppercase tracking-widest font-bold">Chapter 04</span>
          </div>
@@ -50,7 +51,7 @@ export default function Revelation() {
              {/* Flag 1: Patience */}
              <div className="absolute top-[10%] left-[20%] group z-20 animate-float">
                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <span className="material-icons text-green-500 text-2xl">hourglass_bottom</span>
+                     <Hourglass className="text-green-500 w-6 h-6" />
                  </div>
                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
                      <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Unwavering Patience</h3>
@@ -61,7 +62,7 @@ export default function Revelation() {
              {/* Flag 2: Empathy */}
              <div className="absolute top-[30%] right-[15%] group z-20 animate-float" style={{ animationDelay: '1s' }}>
                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <span className="material-icons text-green-500 text-3xl">favorite</span>
+                     <Heart className="text-green-500 w-8 h-8" />
                  </div>
                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
                      <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Pure Empathy</h3>
@@ -72,7 +73,7 @@ export default function Revelation() {
              {/* Flag 3: Support */}
              <div className="absolute bottom-[20%] left-[30%] group z-20 animate-float" style={{ animationDelay: '2s' }}>
                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <span className="material-icons text-green-500 text-xl">school</span>
+                     <GraduationCap className="text-green-500 w-5 h-5" />
                  </div>
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
                      <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Academic Anchor</h3>
@@ -83,7 +84,7 @@ export default function Revelation() {
              {/* Flag 4: Kindness */}
              <div className="absolute bottom-[40%] right-[35%] group z-20 animate-float" style={{ animationDelay: '3s' }}>
                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <span className="material-icons text-green-500 text-lg">spa</span>
+                     <Flower2 className="text-green-500 w-4 h-4" />
                  </div>
                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
                      <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Gentle Spirit</h3>
@@ -95,21 +96,21 @@ export default function Revelation() {
          {/* Mobile Alternative List */}
          <div className="md:hidden w-full space-y-4 mb-16">
              <div className="bg-neutral-dark/50 p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
-                 <div className="bg-green-500/20 p-2 rounded-full"><span className="material-icons text-green-500 text-sm">hourglass_bottom</span></div>
+                 <div className="bg-green-500/20 p-2 rounded-full"><Hourglass className="text-green-500 w-4 h-4" /></div>
                  <div>
                      <h3 className="text-green-500 font-bold text-sm uppercase">Unwavering Patience</h3>
                      <p className="text-xs text-white/70">Listening to my ramblings after your 12hr shifts.</p>
                  </div>
              </div>
              <div className="bg-neutral-dark/50 p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
-                 <div className="bg-green-500/20 p-2 rounded-full"><span className="material-icons text-green-500 text-sm">favorite</span></div>
+                 <div className="bg-green-500/20 p-2 rounded-full"><Heart className="text-green-500 w-4 h-4" /></div>
                  <div>
                      <h3 className="text-green-500 font-bold text-sm uppercase">Pure Empathy</h3>
                      <p className="text-xs text-white/70">The way you care for scared patients.</p>
                  </div>
              </div>
              <div className="bg-neutral-dark/50 p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
-                 <div className="bg-green-500/20 p-2 rounded-full"><span className="material-icons text-green-500 text-sm">school</span></div>
+                 <div className="bg-green-500/20 p-2 rounded-full"><GraduationCap className="text-green-500 w-4 h-4" /></div>
                  <div>
                      <h3 className="text-green-500 font-bold text-sm uppercase">Academic Anchor</h3>
                      <p className="text-xs text-white/70">Supporting me through every exam week.</p>
@@ -125,7 +126,7 @@ export default function Revelation() {
                  <span className="absolute top-8 left-8 text-6xl text-primary/10 font-serif leading-none">&quot;</span>
                  <div className="relative z-10 flex flex-col gap-6">
                      <div className="flex items-center gap-3 mb-2">
-                         <span className="material-icons text-primary text-xl">auto_awesome</span>
+                         <Sparkles className="text-primary w-6 h-6" />
                          <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide">The Prayer</h2>
                      </div>
                      <p className="text-lg text-white/90 leading-relaxed font-light">
@@ -136,12 +137,12 @@ export default function Revelation() {
                      </p>
                      <div className="mt-4 pt-6 border-t border-white/10 flex items-center justify-between">
                          <span className="text-sm text-primary font-medium tracking-widest uppercase">The Revelation</span>
-                         <span className="material-icons text-primary animate-pulse">favorite</span>
+                         <Heart className="text-primary w-5 h-5 animate-pulse" />
                      </div>
                  </div>
                  {/* Background texture for card */}
-                 <div className="absolute bottom-0 right-0 opacity-5 pointer-events-none">
-                     <span className="material-icons text-9xl">church</span>
+                 <div className="absolute bottom-0 right-0 opacity-5 pointer-events-none p-4">
+                     <Church className="w-24 h-24" />
                  </div>
              </div>
          </div>
@@ -150,14 +151,14 @@ export default function Revelation() {
          <div className="mt-20 flex items-center justify-between w-full max-w-4xl px-4">
              <Link href="/timeline" className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white/5 transition-all">
-                     <span className="material-icons text-sm">arrow_back</span>
+                     <ArrowLeft className="w-4 h-4" />
                  </div>
                  <span className="text-sm font-medium tracking-wide hidden md:block">Chapter 03: The First Shift</span>
              </Link>
              <Link href="/valentine" className="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-primary hover:bg-red-600 text-white transition-all shadow-[0_0_20px_rgba(234,42,51,0.4)] hover:shadow-[0_0_30px_rgba(234,42,51,0.6)]">
                  <span className="text-sm font-bold tracking-wide">The Promise</span>
                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                     <span className="material-icons text-sm">arrow_forward</span>
+                     <ArrowRight className="w-4 h-4" />
                  </div>
              </Link>
          </div>

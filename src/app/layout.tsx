@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "@fontsource/plus-jakarta-sans";
-import "@fontsource/material-icons";
 
 export const metadata: Metadata = {
   title: "The Encounter: Pediatrics Home Visit",
