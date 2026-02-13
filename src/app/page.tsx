@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Play, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -65,7 +66,7 @@ export default function Home() {
             <div className="pt-8 flex items-center gap-4">
               <button className="flex items-center gap-3 px-6 py-3 rounded-full bg-neutral-dark border border-primary/20 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group cursor-pointer">
                 <div className="relative w-8 h-8 flex items-center justify-center">
-                  <span className="material-icons text-primary group-hover:scale-110 transition-transform">play_arrow</span>
+                  <Play className="text-primary group-hover:scale-110 transition-transform w-5 h-5 fill-current" />
                   <span className="absolute inset-0 rounded-full border border-primary/30 animate-ping opacity-20"></span>
                 </div>
                 <span className="text-sm font-medium text-gray-300 group-hover:text-white">Play Memory</span>
@@ -125,7 +126,7 @@ export default function Home() {
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 lg:left-20 lg:translate-x-0 z-20">
           <div className="glass-panel px-6 py-3 rounded-full flex items-center space-x-6">
             <button aria-label="Previous Chapter" className="text-gray-400 hover:text-white transition-colors cursor-pointer">
-              <span className="material-icons text-xl">west</span>
+              <ArrowLeft className="w-5 h-5" />
             </button>
             <div className="flex space-x-2">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
@@ -135,7 +136,7 @@ export default function Home() {
             </div>
             <Link href="/beginning" aria-label="Next Chapter" className="text-white hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer">
               <span className="text-sm font-medium hidden sm:block">Next: The First Coffee</span>
-              <span className="material-icons text-xl group-hover:translate-x-1 transition-transform">east</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>

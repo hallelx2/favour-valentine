@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Stethoscope, MapPin, Calendar, PlaneTakeoff, Coffee, ArrowRight } from 'lucide-react';
 
 export default function Beginning() {
   return (
@@ -29,7 +30,7 @@ export default function Beginning() {
 
              {/* Floating Badge */}
              <div className="absolute bottom-8 right-8 z-20 bg-background-light/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full flex items-center gap-2">
-               <span className="material-icons text-primary text-sm">medical_services</span>
+               <Stethoscope className="text-primary text-sm w-4 h-4" />
                <span className="text-xs font-bold uppercase tracking-wider text-white">Est. 2021</span>
              </div>
           </div>
@@ -57,30 +58,30 @@ export default function Beginning() {
               and a generic home visit.
             </p>
             <div className="lg:pl-8 flex items-center justify-center lg:justify-start gap-2 text-gray-500 text-sm font-medium uppercase tracking-wider">
-               <span className="material-icons text-base">location_on</span>
+               <MapPin className="w-4 h-4" />
                Chicago, IL
             </div>
           </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-3 gap-4 lg:gap-8 pt-8 border-t border-gray-800">
-             <div className="text-center lg:text-left group">
+             <div className="text-center lg:text-left group relative">
                 <div className="text-3xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">1,095</div>
                 <div className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2">Days</div>
                 <p className="text-xs text-gray-400 leading-snug hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">Since the day I first saw you in those blue scrubs, wondering if you noticed me.</p>
-                <span className="material-icons text-primary/20 text-4xl absolute -z-10 -translate-y-8 translate-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">event</span>
+                <Calendar className="text-primary/20 w-10 h-10 absolute -z-10 top-0 right-0 -translate-y-4 translate-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110" />
              </div>
-             <div className="text-center lg:text-left group">
+             <div className="text-center lg:text-left group relative">
                 <div className="text-3xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">12</div>
                 <div className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2">Cities</div>
                 <p className="text-xs text-gray-400 leading-snug hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">From our first weekend getaway to that conference where we snuck out for dinner.</p>
-                 <span className="material-icons text-primary/20 text-4xl absolute -z-10 -translate-y-8 translate-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">flight_takeoff</span>
+                 <PlaneTakeoff className="text-primary/20 w-10 h-10 absolute -z-10 top-0 right-0 -translate-y-4 translate-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110" />
              </div>
-             <div className="text-center lg:text-left group">
+             <div className="text-center lg:text-left group relative">
                 <div className="text-3xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">∞</div>
                 <div className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2">Coffees</div>
                 <p className="text-xs text-gray-400 leading-snug hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">Surviving night shifts, residency applications, and early morning rounds together.</p>
-                 <span className="material-icons text-primary/20 text-4xl absolute -z-10 -translate-y-8 translate-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">coffee</span>
+                 <Coffee className="text-primary/20 w-10 h-10 absolute -z-10 top-0 right-0 -translate-y-4 translate-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110" />
              </div>
           </div>
 
@@ -90,7 +91,7 @@ export default function Beginning() {
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-dark to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative flex items-center gap-3">
                    Begin Journey
-                   <span className="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
              </Link>
           </div>

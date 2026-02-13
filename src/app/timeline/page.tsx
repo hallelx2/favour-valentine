@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Heart, Coffee, Eye, Check, Zap, Cake, Star, Activity, ArrowRight } from 'lucide-react';
 
 export default function Timeline() {
   return (
@@ -24,7 +25,7 @@ export default function Timeline() {
                 <Link href="/beginning" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">The Yes</Link>
                 {/* Center Brand/Icon */}
                 <div className="mx-2 w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full shadow-lg shadow-primary/30">
-                    <span className="material-icons text-xl animate-pulse">favorite</span>
+                    <Heart className="w-5 h-5 animate-pulse fill-current" />
                 </div>
                 <Link href="/revelation" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">The First Fight</Link>
                 <Link href="/valentine" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">Forever</Link>
@@ -66,7 +67,7 @@ export default function Timeline() {
                         </p>
 
                         <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <span className="material-icons text-sm">local_cafe</span>
+                            <Coffee className="w-4 h-4" />
                             Cafe Vitals
                         </div>
                     </div>
@@ -91,7 +92,7 @@ export default function Timeline() {
                         </p>
 
                         <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <span className="material-icons text-sm">favorite</span>
+                            <Heart className="w-4 h-4" />
                             Official
                         </div>
                      </div>
@@ -116,7 +117,7 @@ export default function Timeline() {
                         </p>
 
                         <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <span className="material-icons text-sm">healing</span>
+                            <Activity className="w-4 h-4" />
                             Resolved
                         </div>
                     </div>
@@ -141,7 +142,7 @@ export default function Timeline() {
                         </p>
 
                         <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <span className="material-icons text-sm">cake</span>
+                            <Cake className="w-4 h-4" />
                             Celebration
                         </div>
                      </div>
@@ -153,7 +154,7 @@ export default function Timeline() {
                 <Link href="/revelation" className="group relative px-8 py-3 bg-background-dark border border-white/20 hover:border-primary/50 text-white font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
                     <span className="relative flex items-center gap-3">
                         Future Rounds
-                        <span className="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                 </Link>
             </div>
