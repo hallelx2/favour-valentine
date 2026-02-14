@@ -1,175 +1,233 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Menu, Hourglass, Heart, GraduationCap, Flower2, Sparkles, ArrowLeft, ArrowRight, Church } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Heart, ArrowRight, ArrowLeft, CloudRain, Rainbow, Cake, Sprout } from "lucide-react";
+import Link from "next/link";
+
+const P = "/Photos-3-001";
 
 export default function Revelation() {
-  return (
-    <div className="bg-background-dark text-gray-100 font-sans min-h-screen overflow-x-hidden selection:bg-primary selection:text-white relative">
+    return (
+        <div className="bg-background-dark text-gray-100 font-sans min-h-screen overflow-x-hidden selection:bg-primary selection:text-white relative">
+            {/* Ambient */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-background-dark via-[#1a1520] to-background-dark mix-blend-overlay" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-[100px] animate-pulse-slow" />
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+            </div>
 
-      {/* Background Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-         <div className="absolute inset-0 bg-gradient-to-br from-background-dark via-[#1a2e25] to-background-dark mix-blend-overlay"></div>
-         {/* Green Glow */}
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-[100px] animate-pulse-slow"></div>
-         {/* Grain Texture */}
-         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-      </div>
+            {/* Navigation */}
+            <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center py-5 px-4">
+                <div className="bg-neutral-dark/60 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 shadow-xl flex items-center gap-1">
+                    <Link href="/" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors">The Meeting</Link>
+                    <Link href="/beginning" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors hidden md:block">Getting Closer</Link>
+                    <div className="mx-1 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg shadow-primary/30">
+                        <Heart className="w-4 h-4 animate-pulse fill-current" />
+                    </div>
+                    <Link href="/timeline" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors">The Yes</Link>
+                    <div className="px-4 py-2 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">Growth</div>
+                    <Link href="/valentine" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors hidden md:block">Forever</Link>
+                </div>
+            </nav>
 
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center py-20 px-4 md:px-8">
+            <main className="relative z-10 min-h-screen flex flex-col items-center pt-28 pb-16 px-4 md:px-8">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center max-w-3xl mx-auto mb-16"
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+                        <span className="text-xs uppercase tracking-wider text-violet-400 font-bold">Chapter Four — December 2025 to January 2026</span>
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 font-[family-name:var(--font-raleway)]">
+                        Storms That Made Us{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-primary">Bloom</span>
+                    </h1>
+                    <p className="text-lg text-gray-400 font-light max-w-xl mx-auto">
+                        Beautiful fights that made us both grow up and become better people for each other.
+                    </p>
+                </motion.div>
 
-         {/* Top Navigation / Progress */}
-         <div className="absolute top-8 left-8 flex items-center gap-3 text-white/40 hover:text-white transition-colors cursor-pointer group">
-             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                 <Menu className="w-4 h-4" />
-             </div>
-             <span className="text-xs uppercase tracking-widest font-bold">Chapter 04</span>
-         </div>
+                <div className="w-full max-w-5xl mx-auto space-y-24">
 
-         {/* Header Section */}
-         <div className="text-center max-w-3xl mx-auto mb-16 relative">
-             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
-                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                 <span className="text-xs uppercase tracking-wider text-green-500 font-bold">Safe Harbor</span>
-             </div>
-             <h1 className="text-4xl md:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 mb-6">
-                 Searching for red flags,<br/>
-                 but only finding a <span className="text-green-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">garden of green.</span>
-             </h1>
-             <p className="text-lg text-white/60 font-light max-w-xl mx-auto">
-                 In a world where I was taught to be cautious, you taught me to be certain. Every hesitation I had was met with your gentle reassurance.
-             </p>
-         </div>
+                    {/* SECTION 1: First Fight — Dec 23 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
+                    >
+                        <div className="w-full md:w-1/2">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-white/10"
+                            >
+                                <img src={`${P}/20251230_192026.jpg`} alt="Through the storm" className="w-full h-full object-cover" loading="lazy" />
+                            </motion.div>
+                        </div>
 
-         {/* Interactive Green Flags Garden */}
-         <div className="relative w-full max-w-5xl h-[500px] mb-24 hidden md:block">
-             {/* Decorative circle behind */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5 opacity-50"></div>
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-white/5 opacity-30"></div>
+                        <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
+                            <div className="flex items-center justify-center md:justify-start gap-2 text-slate-400 text-xs uppercase tracking-wider font-bold">
+                                <CloudRain className="w-4 h-4" />
+                                December 23, 2025
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-raleway)]">Our First <span className="text-slate-400">Storm</span></h2>
+                            <p className="text-gray-300 font-light leading-relaxed">
+                                I told her I was going to take her out on Christmas Day. Then something came up, and I wasn&apos;t able to keep that promise. She was hurt — and she had every right to be.
+                            </p>
+                            <p className="text-gray-300 font-light leading-relaxed">
+                                It was our first real fight. But it taught me something important: <span className="text-white italic">&ldquo;Love isn&apos;t just about saying the right things — it&apos;s about showing up.&rdquo;</span>
+                            </p>
+                        </div>
+                    </motion.div>
 
-             {/* Flag 1: Patience */}
-             <div className="absolute top-[10%] left-[20%] group z-20 animate-float">
-                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <Hourglass className="text-green-500 w-6 h-6" />
-                 </div>
-                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
-                     <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Unwavering Patience</h3>
-                     <p className="text-xs text-white/80 leading-relaxed">Even after your 12-hour shifts, you listen to my frantic study ramblings without a hint of exhaustion.</p>
-                 </div>
-             </div>
+                    {/* SECTION 2: Resolution — Dec 29 + New Year */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12"
+                    >
+                        <div className="w-full md:w-1/2 grid grid-cols-2 gap-3">
+                            {[`${P}/20260104_153350.jpg`, `${P}/20260104_153358.jpg`].map((src, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, scale: 0.85 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.15 }}
+                                    className="aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-lg"
+                                >
+                                    <img src={src} alt={`Resolution ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                                </motion.div>
+                            ))}
+                        </div>
 
-             {/* Flag 2: Empathy */}
-             <div className="absolute top-[30%] right-[15%] group z-20 animate-float" style={{ animationDelay: '1s' }}>
-                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <Heart className="text-green-500 w-8 h-8" />
-                 </div>
-                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
-                     <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Pure Empathy</h3>
-                     <p className="text-xs text-white/80 leading-relaxed">The way you held that scared patient&apos;s hand... I knew then that your heart was rare.</p>
-                 </div>
-             </div>
+                        <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
+                            <div className="flex items-center justify-center md:justify-start gap-2 text-violet-400 text-xs uppercase tracking-wider font-bold">
+                                <Rainbow className="w-4 h-4" />
+                                December 29, 2025
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-raleway)]">The <span className="text-violet-400">Rainbow</span> After</h2>
+                            <p className="text-gray-300 font-light leading-relaxed">
+                                By December 29, we resolved it — not with grand gestures, but with honest words and open hearts. We stepped into the new year together, stronger and wiser.
+                            </p>
+                            <p className="text-gray-400 font-light italic">
+                                &ldquo;Happy New Year, my love. Here&apos;s to us — all of us, storms and all.&rdquo;
+                            </p>
+                        </div>
+                    </motion.div>
 
-             {/* Flag 3: Support */}
-             <div className="absolute bottom-[20%] left-[30%] group z-20 animate-float" style={{ animationDelay: '2s' }}>
-                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <GraduationCap className="text-green-500 w-5 h-5" />
-                 </div>
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
-                     <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Academic Anchor</h3>
-                     <p className="text-xs text-white/80 leading-relaxed">You never complain about the missed dates during exam week. You just bring coffee.</p>
-                 </div>
-             </div>
+                    {/* SECTION 3: Her Birthday — Jan 21 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
+                    >
+                        <div className="w-full md:w-1/2 grid grid-cols-3 gap-2">
+                            {[`${P}/20260121_173224.jpg`, `${P}/20260121_173229.jpg`, `${P}/20260121_173842.jpg`].map((src, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, scale: 0.85, rotate: -3 + i * 3 }}
+                                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-lg"
+                                >
+                                    <img src={src} alt={`Birthday ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                                </motion.div>
+                            ))}
+                        </div>
 
-             {/* Flag 4: Kindness */}
-             <div className="absolute bottom-[40%] right-[35%] group z-20 animate-float" style={{ animationDelay: '3s' }}>
-                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 backdrop-blur-md flex items-center justify-center cursor-pointer shadow-green-500/20 shadow-lg group-hover:scale-110 transition-transform">
-                     <Flower2 className="text-green-500 w-4 h-4" />
-                 </div>
-                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 rounded-xl bg-neutral-dark/90 border border-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform translate-y-4 group-hover:translate-y-0">
-                     <h3 className="text-green-500 font-bold text-sm uppercase mb-1">Gentle Spirit</h3>
-                     <p className="text-xs text-white/80 leading-relaxed">Kindness isn&apos;t something you do, it&apos;s who you are.</p>
-                 </div>
-             </div>
-         </div>
+                        <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
+                            <div className="flex items-center justify-center md:justify-start gap-2 text-fuchsia-400 text-xs uppercase tracking-wider font-bold">
+                                <Cake className="w-4 h-4" />
+                                January 21, 2026
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-raleway)]">Happy Birthday, <span className="text-fuchsia-400">My Love</span></h2>
+                            <p className="text-gray-300 font-light leading-relaxed">
+                                Her birthday — the day the world became a better place. I celebrated the woman who makes every single day feel like a gift. She is my <span className="text-primary font-medium">favorite nurse intern</span> and the most beautiful soul I know.
+                            </p>
+                        </div>
+                    </motion.div>
 
-         {/* Mobile Alternative List */}
-         <div className="md:hidden w-full space-y-4 mb-16">
-             <div className="bg-neutral-dark/50 p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
-                 <div className="bg-green-500/20 p-2 rounded-full"><Hourglass className="text-green-500 w-4 h-4" /></div>
-                 <div>
-                     <h3 className="text-green-500 font-bold text-sm uppercase">Unwavering Patience</h3>
-                     <p className="text-xs text-white/70">Listening to my ramblings after your 12hr shifts.</p>
-                 </div>
-             </div>
-             <div className="bg-neutral-dark/50 p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
-                 <div className="bg-green-500/20 p-2 rounded-full"><Heart className="text-green-500 w-4 h-4" /></div>
-                 <div>
-                     <h3 className="text-green-500 font-bold text-sm uppercase">Pure Empathy</h3>
-                     <p className="text-xs text-white/70">The way you care for scared patients.</p>
-                 </div>
-             </div>
-             <div className="bg-neutral-dark/50 p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
-                 <div className="bg-green-500/20 p-2 rounded-full"><GraduationCap className="text-green-500 w-4 h-4" /></div>
-                 <div>
-                     <h3 className="text-green-500 font-bold text-sm uppercase">Academic Anchor</h3>
-                     <p className="text-xs text-white/70">Supporting me through every exam week.</p>
-                 </div>
-             </div>
-         </div>
+                    {/* SECTION 4: More Growth */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div className="bg-gradient-to-br from-emerald-500/10 to-green-500/5 border border-emerald-500/20 rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto">
+                            <Sprout className="w-8 h-8 text-emerald-400 mx-auto mb-4" />
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 font-[family-name:var(--font-raleway)]">
+                                Beautiful <span className="text-emerald-400">Growth</span>
+                            </h2>
+                            <p className="text-gray-300 font-light leading-relaxed max-w-xl mx-auto mb-6">
+                                We fought again — and resolved again. These weren&apos;t destructive fights. They were the kind that water the garden. Each disagreement pushed us to be more honest, more patient, more <span className="text-emerald-400 font-medium">selfless</span>.
+                            </p>
+                            <p className="text-lg text-white/80 italic font-light">
+                                &ldquo;Every storm watered the garden of our love.&rdquo;
+                            </p>
 
-         {/* The Prayer / Realization Section */}
-         <div className="w-full max-w-2xl relative">
-             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary rounded-full blur-[80px] opacity-20 animate-pulse"></div>
-             <div className="bg-neutral-dark/80 backdrop-blur-md rounded-xl md:rounded-[3rem] p-8 md:p-12 border border-primary/20 relative overflow-hidden">
-                 {/* Decorative quote mark */}
-                 <span className="absolute top-8 left-8 text-6xl text-primary/10 font-serif leading-none">&quot;</span>
-                 <div className="relative z-10 flex flex-col gap-6">
-                     <div className="flex items-center gap-3 mb-2">
-                         <Sparkles className="text-primary w-6 h-6" />
-                         <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide">The Prayer</h2>
-                     </div>
-                     <p className="text-lg text-white/90 leading-relaxed font-light">
-                         I remember kneeling by my bedside, exhausted from rounds, feeling the weight of the future. I asked for a sign. Not a lightning bolt, but a quiet certainty. I asked for someone who understands the silence after a long shift, who sees the person behind the scrubs.
-                     </p>
-                     <p className="text-lg text-white/90 leading-relaxed font-light">
-                         And then, I thought of you. I realized I wasn&apos;t asking for someone *like* you. I was describing you.
-                     </p>
-                     <div className="mt-4 pt-6 border-t border-white/10 flex items-center justify-between">
-                         <span className="text-sm text-primary font-medium tracking-widest uppercase">The Revelation</span>
-                         <Heart className="text-primary w-5 h-5 animate-pulse" />
-                     </div>
-                 </div>
-                 {/* Background texture for card */}
-                 <div className="absolute bottom-0 right-0 opacity-5 pointer-events-none p-4">
-                     <Church className="w-24 h-24" />
-                 </div>
-             </div>
-         </div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-8">
+                                {[
+                                    `${P}/20260129_152803.jpg`,
+                                    `${P}/20260131_105926.jpg`,
+                                    `${P}/IMG_20260131_120456.jpg`,
+                                    `${P}/IMG_20260131_120859.jpg`,
+                                ].map((src, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="aspect-square rounded-xl overflow-hidden border border-white/10"
+                                    >
+                                        <img src={src} alt={`Growth ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
 
-         {/* Footer Navigation */}
-         <div className="mt-20 flex items-center justify-between w-full max-w-4xl px-4">
-             <Link href="/timeline" className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
-                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white/5 transition-all">
-                     <ArrowLeft className="w-4 h-4" />
-                 </div>
-                 <span className="text-sm font-medium tracking-wide hidden md:block">Chapter 03: The First Shift</span>
-             </Link>
-             <Link href="/valentine" className="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-primary hover:bg-red-600 text-white transition-all shadow-[0_0_20px_rgba(234,42,51,0.4)] hover:shadow-[0_0_30px_rgba(234,42,51,0.6)]">
-                 <span className="text-sm font-bold tracking-wide">The Promise</span>
-                 <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                     <ArrowRight className="w-4 h-4" />
-                 </div>
-             </Link>
-         </div>
+                {/* Navigation */}
+                <div className="mt-20 flex items-center justify-between w-full max-w-4xl px-4">
+                    <Link href="/timeline" className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white/5 transition-all">
+                            <ArrowLeft className="w-4 h-4" />
+                        </div>
+                        <span className="text-sm font-medium hidden md:block">She Said Yes</span>
+                    </Link>
+                    <Link href="/valentine" className="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-primary hover:bg-red-600 text-white transition-all shadow-[0_0_20px_rgba(234,42,51,0.4)] hover:shadow-[0_0_30px_rgba(234,42,51,0.6)]">
+                        <span className="text-sm font-bold">Happy Valentine&apos;s Day ❤️</span>
+                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                            <ArrowRight className="w-4 h-4" />
+                        </div>
+                    </Link>
+                </div>
 
-      </main>
-
-      {/* Footer attribution/subtle text */}
-      <div className="fixed bottom-4 w-full text-center pointer-events-none">
-          <p className="text-[10px] text-white/20 uppercase tracking-[0.2em]">Based on a true story</p>
-      </div>
-
-    </div>
-  );
+                {/* Page indicator */}
+                <div className="mt-8 flex items-center gap-3">
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                    <div className="w-8 h-1 rounded-full bg-primary" />
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                </div>
+            </main>
+        </div>
+    );
 }

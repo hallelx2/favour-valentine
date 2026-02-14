@@ -1,164 +1,187 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Heart, Coffee, Eye, Check, Zap, Cake, Star, Activity, ArrowRight } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Heart, ArrowRight, ArrowLeft, Coffee, Check, Users } from "lucide-react";
+import Link from "next/link";
+
+const P = "/Photos-3-001";
 
 export default function Timeline() {
-  return (
-    <div className="bg-background-dark text-gray-100 font-sans min-h-screen overflow-x-hidden selection:bg-primary selection:text-white relative">
-        {/* Background Elements */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background-dark/90 mix-blend-overlay"></div>
-            {/* Animated Floating Hearts (CSS shapes) */}
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] animate-pulse-slow"></div>
-            <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '1s' }}></div>
-             {/* Grain Texture */}
-             <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+    return (
+        <div className="bg-background-dark text-gray-100 font-sans min-h-screen overflow-x-hidden selection:bg-primary selection:text-white relative">
+            {/* Ambient */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background-dark/90 mix-blend-overlay" />
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/15 rounded-full blur-[100px] animate-pulse-slow" />
+                <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-primary/8 rounded-full blur-[120px] animate-float" style={{ animationDelay: "1s" }} />
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+            </div>
+
+            {/* Navigation */}
+            <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center py-5 px-4">
+                <div className="bg-neutral-dark/60 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 shadow-xl flex items-center gap-1">
+                    <Link href="/" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors">The Meeting</Link>
+                    <Link href="/beginning" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors">Getting Closer</Link>
+                    <div className="mx-1 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg shadow-primary/30">
+                        <Heart className="w-4 h-4 animate-pulse fill-current" />
+                    </div>
+                    <div className="px-4 py-2 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">The Yes</div>
+                    <Link href="/revelation" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors hidden md:block">Growth</Link>
+                    <Link href="/valentine" className="px-4 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-primary transition-colors hidden md:block">Forever</Link>
+                </div>
+            </nav>
+
+            <main className="relative z-10 min-h-screen flex flex-col items-center pt-28 pb-16 px-4 md:px-8">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center max-w-3xl mx-auto mb-16"
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                        <span className="text-xs uppercase tracking-wider text-primary font-bold">Chapter Three — October 2025</span>
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 font-[family-name:var(--font-raleway)]">
+                        She Said <span className="text-primary">YES!</span>
+                    </h1>
+                    <p className="text-lg text-gray-400 font-light max-w-xl mx-auto">
+                        The most important days of my life happened in a single week.
+                    </p>
+                </motion.div>
+
+                {/* Vertical timeline */}
+                <div className="relative w-full max-w-4xl mx-auto">
+                    {/* Central line */}
+                    <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary/30 to-primary/50 md:-translate-x-1/2" />
+
+                    <div className="space-y-20">
+                        {/* Oct 22 — The Question */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.8 }}
+                            className="relative flex flex-col md:flex-row items-start gap-6 md:gap-12"
+                        >
+                            {/* Node */}
+                            <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
+                                <div className="w-12 h-12 rounded-full bg-background-dark border-2 border-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                                    <Coffee className="w-5 h-5 text-primary" />
+                                </div>
+                            </div>
+
+                            <div className="ml-16 md:ml-0 md:w-[45%] md:pr-8">
+                                <div className="bg-neutral-dark/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 md:p-8 hover:border-primary/40 transition-all">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="px-3 py-1 rounded-full bg-primary text-white text-xs font-bold uppercase">Oct 22</span>
+                                    </div>
+                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 font-[family-name:var(--font-raleway)]">The Question</h3>
+                                    <p className="text-gray-300 font-light leading-relaxed mb-4">
+                                        Heart pounding, palms sweating — I finally asked her out. Every word felt heavy and light at the same time. I laid my heart completely bare and waited...
+                                    </p>
+                                    <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10">
+                                        <img src={`${P}/Screenshot_20251222_173254_WhatsApp.jpg`} alt="The question" className="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Oct 24 — The Yes */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.8 }}
+                            className="relative flex flex-col md:flex-row-reverse items-start gap-6 md:gap-12"
+                        >
+                            <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
+                                <div className="w-14 h-14 rounded-full bg-primary border-2 border-white/20 flex items-center justify-center shadow-lg shadow-primary/40 animate-pulse">
+                                    <Heart className="w-6 h-6 text-white fill-current" />
+                                </div>
+                            </div>
+
+                            <div className="ml-16 md:ml-0 md:w-[45%] md:pl-8 md:ml-auto">
+                                <div className="bg-gradient-to-br from-primary/15 to-primary/5 backdrop-blur-sm border border-primary/30 rounded-2xl p-6 md:p-8">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="px-3 py-1 rounded-full bg-primary text-white text-xs font-bold uppercase">Oct 24</span>
+                                        <span className="text-primary text-xs font-bold animate-pulse">❤️ THE YES!</span>
+                                    </div>
+                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 font-[family-name:var(--font-raleway)]">She Said <span className="text-primary">Yes!</span></h3>
+                                    <p className="text-gray-300 font-light leading-relaxed mb-4">
+                                        Two days. That&apos;s how long I waited for the answer that changed my life forever. When she said <span className="text-primary font-bold italic">&ldquo;Yes&rdquo;</span>, I swear my heart grew three sizes. Status updated: <span className="text-white font-medium">officially together</span>. Dopamine levels: critical.
+                                    </p>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div className="aspect-square rounded-xl overflow-hidden border border-white/10">
+                                            <img src={`${P}/Screenshot_20251222_173332_WhatsApp.jpg`} alt="She said yes" className="w-full h-full object-cover" loading="lazy" />
+                                        </div>
+                                        <div className="aspect-square rounded-xl overflow-hidden border border-white/10">
+                                            <img src={`${P}/20251221_192529.jpg`} alt="Together" className="w-full h-full object-cover" loading="lazy" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Oct 27 — Parents */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.8 }}
+                            className="relative flex flex-col md:flex-row items-start gap-6 md:gap-12"
+                        >
+                            <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20">
+                                <div className="w-12 h-12 rounded-full bg-background-dark border-2 border-amber-500/50 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                                    <Users className="w-5 h-5 text-amber-400" />
+                                </div>
+                            </div>
+
+                            <div className="ml-16 md:ml-0 md:w-[45%] md:pr-8">
+                                <div className="bg-neutral-dark/80 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 md:p-8 hover:border-amber-500/40 transition-all">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase">Oct 27</span>
+                                    </div>
+                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 font-[family-name:var(--font-raleway)]">Our Parents Know</h3>
+                                    <p className="text-gray-300 font-light leading-relaxed mb-4 font-[family-name:var(--font-poppins)]">
+                                        Just three days later, we told our parents about us. Her parents are yet to say yes — but <span className="text-amber-400 font-medium italic">she already has</span>. She loves me so much already, I know it. She tries to be stubborn sometimes, but it doesn&apos;t work. My parents are on board. This isn&apos;t just our story anymore — it&apos;s becoming a family story.
+                                    </p>
+                                    <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10">
+                                        <img src={`${P}/20251221_192537.jpg`} alt="Our families" className="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+
+                {/* Navigation */}
+                <div className="mt-20 flex items-center justify-between w-full max-w-4xl px-4">
+                    <Link href="/beginning" className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white/5 transition-all">
+                            <ArrowLeft className="w-4 h-4" />
+                        </div>
+                        <span className="text-sm font-medium hidden md:block">Getting Closer</span>
+                    </Link>
+                    <Link href="/revelation" className="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-primary hover:bg-red-600 text-white transition-all shadow-[0_0_20px_rgba(234,42,51,0.4)]">
+                        <span className="text-sm font-bold">Storms & Growth</span>
+                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                            <ArrowRight className="w-4 h-4" />
+                        </div>
+                    </Link>
+                </div>
+
+                {/* Page indicator */}
+                <div className="mt-8 flex items-center gap-3">
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                    <div className="w-8 h-1 rounded-full bg-primary" />
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                    <div className="w-3 h-1 rounded-full bg-white/20" />
+                </div>
+            </main>
         </div>
-
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center py-6 px-4">
-            <div className="bg-neutral-dark/60 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 shadow-xl shadow-primary/5 flex items-center gap-1">
-                <Link href="/" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">The Meeting</Link>
-                <Link href="/beginning" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">The Yes</Link>
-                {/* Center Brand/Icon */}
-                <div className="mx-2 w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full shadow-lg shadow-primary/30">
-                    <Heart className="w-5 h-5 animate-pulse fill-current" />
-                </div>
-                <Link href="/revelation" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">The First Fight</Link>
-                <Link href="/valentine" className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-primary transition-colors">Forever</Link>
-            </div>
-        </nav>
-
-        {/* Hero Section */}
-        <main className="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-4">
-
-            {/* Timeline Vertical Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent -z-10 hidden lg:block"></div>
-
-            {/* Intro Label */}
-            <div className="mb-12 animate-float">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                    Patient History
-                </span>
-            </div>
-
-            <div className="relative w-full max-w-5xl mx-auto space-y-24 lg:space-y-0">
-
-                {/* Milestone 1: The Question (Right) */}
-                <div className="relative flex items-center justify-center lg:justify-start lg:ml-[50%] lg:pl-12 group">
-                    <div className="bg-neutral-dark border border-white/10 p-6 rounded-2xl w-full max-w-md relative hover:border-primary/50 transition-colors duration-300">
-                        {/* Connector Dot */}
-                        <div className="absolute left-1/2 -top-12 lg:left-0 lg:top-1/2 lg:-translate-x-[3.25rem] lg:-translate-y-1/2 w-4 h-4 bg-background-dark border-2 border-primary rounded-full z-20"></div>
-
-                        <div className="absolute -top-3 -right-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Oct 22</div>
-
-                        <div className="mb-4 overflow-hidden rounded-xl h-48 relative">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCYIohLJsg3nBp_uIwREkLxUr6ap3E74dCQ3X7KnWJJQfIrMWr8lZBGxzhfmWBftE2KGORo4ePXrjA3vZmjVDt8gwtKZuyJbyxJcpcTAwtuTsal8v_7MKhDAM9Oc-5EBQLxjE2IEbaPyD9HmW6D4t7xDjKnWrrSZDjH1lTKid3hu5CAYg2tPnE2PaElQoa1Xbq-OAoKVahsxLyrSDp_VSX-QsI_RtT5X98iPOTNhoB_7rk8zrx4VMuIFySGXwJXSJ5U4DHh3a9vo_T" alt="Coffee Shop" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"/>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">The Question</h3>
-                        </div>
-
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                            Heart rate spiked to 140bpm. The moment I finally gathered the courage to ask you out. The coffee was cold, but the moment was electric.
-                        </p>
-
-                        <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <Coffee className="w-4 h-4" />
-                            Cafe Vitals
-                        </div>
-                    </div>
-                </div>
-
-                {/* Milestone 2: The Diagnosis (Left) */}
-                <div className="relative flex items-center justify-center lg:justify-end lg:mr-[50%] lg:pr-12 group">
-                     <div className="bg-neutral-dark border border-white/10 p-6 rounded-2xl w-full max-w-md relative hover:border-primary/50 transition-colors duration-300">
-                        {/* Connector Dot */}
-                        <div className="absolute left-1/2 -top-12 lg:right-0 lg:left-auto lg:top-1/2 lg:translate-x-[3.25rem] lg:-translate-y-1/2 w-4 h-4 bg-background-dark border-2 border-primary rounded-full z-20"></div>
-
-                        <div className="absolute -top-3 -left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Oct 24</div>
-
-                         <div className="mb-4 overflow-hidden rounded-xl h-48 relative">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsv253TZmnrdAux_uqhOAbK9GGPlKTY3I79MfNgcg0pFkT0kzFzAd1pr4yOv4jhw_CpVrASWXSQvHo7tMdvsv1NdFWJxEcPFGecQ6X-8HrOeR_c7ghqrG7vOGYH3g5CTjvGAvPLpr7m42oJ4Ial6g8Y0mBdm487wmFn3HZ4enunA_TfEYU2KAJyvKCf-z7qpdk92Yy1--qKBKsoDbofJr3xuDMc9zC68v_wgroEx3zQAeApWfDcPUVWJ6A4NsCIbOfvZ7jpxrYS6zB" alt="Holding Hands" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"/>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">The Diagnosis: Yes!</h3>
-                        </div>
-
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                             Patient confirmed mutual feelings. Status updated to: &quot;In a Relationship.&quot; Dopamine levels critical. The start of our rounds together.
-                        </p>
-
-                        <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <Heart className="w-4 h-4" />
-                            Official
-                        </div>
-                     </div>
-                </div>
-
-                 {/* Milestone 3: First Round (Right) */}
-                 <div className="relative flex items-center justify-center lg:justify-start lg:ml-[50%] lg:pl-12 group">
-                    <div className="bg-neutral-dark border border-white/10 p-6 rounded-2xl w-full max-w-md relative hover:border-primary/50 transition-colors duration-300">
-                         {/* Connector Dot */}
-                         <div className="absolute left-1/2 -top-12 lg:left-0 lg:top-1/2 lg:-translate-x-[3.25rem] lg:-translate-y-1/2 w-4 h-4 bg-background-dark border-2 border-primary rounded-full z-20"></div>
-
-                        <div className="absolute -top-3 -right-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Dec 19</div>
-
-                        <div className="mb-4 overflow-hidden rounded-xl h-48 relative">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvuzhzCeusiGW0X_FJwpiDDGn8euLF5dQyIm7EALGhCuly_M5_hDFFm0OsqOr3TTe0j3MY-8xJ2nza0Kxyp1ScwdIk6gcQZx4MoCqfTOb7wMYf-kxX6lcDfLfnsFJ5QAQ5w4Ejt8np3B8Odbd9TyACScHPVG1WBrxAyWuc99GZQfI1Oveav_9JkvaxzZrdKWlwSmC7duTt_mdSb_jxskKpe6dm_4oI50lSAgwDtFcuefgPLNt2eLQksIosD9hfJjwOALLtG0cciyd5" alt="Rainy Window" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"/>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">First Round (Fight)</h3>
-                        </div>
-
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                            Brief arrhythmia detected. We argued, but we fixed it with care. Proved that even when the charts get messy, we stabilize each other.
-                        </p>
-
-                        <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <Activity className="w-4 h-4" />
-                            Resolved
-                        </div>
-                    </div>
-                </div>
-
-                {/* Milestone 4: The VIP (Left) */}
-                <div className="relative flex items-center justify-center lg:justify-end lg:mr-[50%] lg:pr-12 group">
-                     <div className="bg-neutral-dark border border-white/10 p-6 rounded-2xl w-full max-w-md relative hover:border-primary/50 transition-colors duration-300">
-                        {/* Connector Dot */}
-                        <div className="absolute left-1/2 -top-12 lg:right-0 lg:left-auto lg:top-1/2 lg:translate-x-[3.25rem] lg:-translate-y-1/2 w-4 h-4 bg-background-dark border-2 border-primary rounded-full z-20"></div>
-
-                        <div className="absolute -top-3 -left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Jan 21</div>
-
-                         <div className="mb-4 overflow-hidden rounded-xl h-48 relative">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr1ajqkSwYOxVgLiklOzc73wpENwHpAG4QYkqwsnCiPhxEfH8ibh3G1tgvrcRVEjhCZcB3SaKRgeP0ehw99QFKgLuGLrdJonBmxKOJRMo_agiAXR-wrCTIGFVGAxD303IUQr2ymUsCp8U_swroZeecPM_MERmcob31wUfllp2Z6GfCoRQ6cxuZg0zD3Gew5kZAHwtujX4BQly5huXjHXFBSA_Ynb9ZG_VSengLmmDphQ3zlSggOHhlQ3G5QmYRA5z_-mkSc2pvMJzB" alt="Birthday Cake" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"/>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">The VIP</h3>
-                        </div>
-
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                             Very Important Patient&apos;s Birthday. Treatment plan included cake, gifts, and excessive amounts of affection. Recovery time: 0 days.
-                        </p>
-
-                        <div className="flex items-center gap-2 text-primary/80 text-xs font-mono uppercase tracking-wider">
-                            <Cake className="w-4 h-4" />
-                            Celebration
-                        </div>
-                     </div>
-                </div>
-            </div>
-
-            {/* Next Button */}
-            <div className="mt-20">
-                <Link href="/revelation" className="group relative px-8 py-3 bg-background-dark border border-white/20 hover:border-primary/50 text-white font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-                    <span className="relative flex items-center gap-3">
-                        Future Rounds
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                </Link>
-            </div>
-        </main>
-    </div>
-  );
+    );
 }
